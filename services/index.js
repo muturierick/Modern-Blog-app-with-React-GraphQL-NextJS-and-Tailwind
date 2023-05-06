@@ -92,3 +92,46 @@ export const getCategories = async () => {
 
   return result.categories;
 };
+
+
+export const getPostDetails = async (slug) => {
+  const query = gql`
+    query GetPostDetails($slug: String!) {
+      post(where: {slug: $slug}){           
+            author {
+              bio
+              name
+              id
+              photo {
+                url
+              }
+            }
+            createdAt
+            slug
+            title
+            exerpt
+            featuredImage {
+              url
+            }
+            categories {
+              name
+              slug
+            }
+            content {
+              raw
+            }
+          }
+        } 
+  `
+  const result = await request(graphqlAPI, query, {slug});
+
+  return result.post;
+};
+
+export const submitComment = async (obj) => {
+  const result = await fetch('/api/comments', {
+    method: 'POST',
+    body: JSON.stringify(obj),
+  });
+  return result.json();
+}
