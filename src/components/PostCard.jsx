@@ -24,7 +24,7 @@ const PostCard = ({post}) => {
             width='30px'
             className='align-middle rounded-full'
            />
-           <p className='inline align-middle text-gray-700 ml-2 text-xl'>{post.author.name}</p>
+           <p className='inline align-middle text-gray-700 ml-2 text-lg'>{post.author.name}</p>
         </div>
         <div className='font-medium text-gray-700 text-xl'>
           <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 inline mr-2 text-pink-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
